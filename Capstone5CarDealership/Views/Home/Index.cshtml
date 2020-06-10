@@ -1,0 +1,50 @@
+﻿@model List<Cars>
+<h3>Search for a Car:</h3>
+<p>Enter car info:</p>
+<form action="Home/Search" method="post">
+    <input type="text" name="make" placeholder="make" />
+    <input type="text" name="model" placeholder="model" />
+    <input type="text" name="color" placeholder="color" />
+    <input type="number" name="year" placeholder="year" />
+    <input type="submit" />
+</form>
+
+<h3>List of All Available Cars</h3>
+<table class="table">
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+    </tr>
+    @foreach (Cars c in Model)
+    {
+<tr>
+    <td>@c.Make</td>
+    <td>@c.Model</td>
+    <td>@c.Year</td>
+    <td>@c.Color</td>
+    <td>
+        <form action="Home/RemoveCars" method="post">
+            <input type="hidden" name="id" value="@c.Id" />
+            <button type="submit" value="Submit">Remove Car</button>
+        </form>
+    </td>
+    <td>
+        <form action="Home/UpdateCars" method="post">
+            <input type="hidden" name="id" value="@c.Id" />
+            <button type="submit" value="Submit">Update Car</button>
+        </form>
+    </td>
+</tr>
+    }
+</table>
+
+<h3>Add a new Car:</h3>
+<form action="Home/AddCars" method="post">
+    <input type="text" name="make" placeholder="make" />
+    <input type="text" name="model" placeholder="model" />
+    <input type="text" name="color" placeholder="color" />
+    <input type="number" name="year" placeholder="year" />
+    <input type="submit" />
+</form>

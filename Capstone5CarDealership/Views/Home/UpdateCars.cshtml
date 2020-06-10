@@ -1,0 +1,11 @@
+﻿@model Cars
+
+<p>Enter car info:</p>
+<form action="ChangeCars" method="put">
+    <input type="text" name="make" placeholder="@Model.Make" value="@Model.Make"/>
+    <input type="text" name="model" placeholder="@Model.Model" value="@Model.Model" />
+    <input type="text" name="color" placeholder="@Model.Color" value="@Model.Color" />
+    <input type="number" name="year" placeholder="@Model.Year" value="@Model.Year" />
+    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="submit" />
+</form>
